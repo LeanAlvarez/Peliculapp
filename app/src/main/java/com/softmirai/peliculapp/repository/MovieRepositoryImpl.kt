@@ -1,17 +1,12 @@
 package com.softmirai.peliculapp.repository
 
 import com.softmirai.peliculapp.data.model.MovieList
+import com.softmirai.peliculapp.data.remote.MovieDataSource
 
-class MovieRepositoryImpl : MovieRepository{
-    override suspend fun getUpcomingMovies(): MovieList {
-        TODO("Not yet implemented")
-    }
+class MovieRepositoryImpl(private val dataSource: MovieDataSource) : MovieRepository{
+    override suspend fun getUpcomingMovies(): MovieList = dataSource.getUpcomingMovies()
 
-    override suspend fun getTopRatedMovies(): MovieList {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getTopRatedMovies(): MovieList = dataSource.getTopRatedMovies()
 
-    override suspend fun getPopularMovies(): MovieList {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getPopularMovies(): MovieList = dataSource.getPopularMovies()
 }
