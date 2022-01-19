@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "320056681327",
+    "project_id": "queveo-655c8",
+    "storage_bucket": "queveo-655c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320056681327:android:c236c69c89696e273e3e9a",
+        "android_client_info": {
+          "package_name": "com.softmirai.peliculapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320056681327-vd5v1oqn9vqtd2dhg7jhv8e5ll9jg2q6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYx522N6hlVConH1vr7IjHK-rsfe_P5qs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320056681327-vd5v1oqn9vqtd2dhg7jhv8e5ll9jg2q6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
