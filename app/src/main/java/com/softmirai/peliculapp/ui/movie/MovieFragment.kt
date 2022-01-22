@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.softmirai.peliculapp.R
 import com.softmirai.peliculapp.core.Resource
 import com.softmirai.peliculapp.data.model.Movie
-import com.softmirai.peliculapp.data.remote.MovieDataSource
+import com.softmirai.peliculapp.data.remote.RemoteMovieDataSource
 import com.softmirai.peliculapp.databinding.FragmentMovieBinding
 import com.softmirai.peliculapp.presentation.MovieViewModel
 import com.softmirai.peliculapp.presentation.MovieViewModelFactory
@@ -29,7 +29,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
 
     //creo instancia de viewModel
     private val viewModel by viewModels<MovieViewModel> {
-        MovieViewModelFactory(MovieRepositoryImpl(MovieDataSource(RetrofitClient.webservice)))
+        MovieViewModelFactory(MovieRepositoryImpl(RemoteMovieDataSource(RetrofitClient.webservice)))
     }
 
 

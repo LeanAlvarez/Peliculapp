@@ -4,7 +4,7 @@ import com.softmirai.peliculapp.application.AppConstants
 import com.softmirai.peliculapp.data.model.MovieList
 import com.softmirai.peliculapp.repository.WebService
 
-class MovieDataSource(private val webService: WebService) {
+class RemoteMovieDataSource(private val webService: WebService) {
     //creo los metodos que van a ir a buscar información al servidor de cada una de las peliculas
 
     suspend fun getUpcomingMovies(): MovieList = webService.getUpcomingMovies(AppConstants.API_KEY)
