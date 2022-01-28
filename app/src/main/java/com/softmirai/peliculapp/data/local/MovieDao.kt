@@ -11,11 +11,9 @@ import com.softmirai.peliculapp.data.model.MovieEntity
 interface MovieDao {
 
     @Query("SELECT * FROM movieentity")
-    suspend fun getAllMovies():List<MovieEntity>
+    suspend fun getAllMovies(): List<MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveMovie(movie:MovieEntity)
-
-
+    suspend fun saveMovie(movie: MovieEntity)
 
 }

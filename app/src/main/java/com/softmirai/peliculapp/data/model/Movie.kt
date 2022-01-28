@@ -19,56 +19,54 @@ data class Movie(
     val vote_average: Double = -1.0,
     val vote_count: Int = -1,
     val movie_type: String = ""
-    )
+)
 
 
 data class MovieList(val results: List<Movie> = listOf())
 
-
-//ROOM
+//Room
 
 @Entity
 data class MovieEntity(
     @PrimaryKey
     val id: Int = -1,
-    @ColumnInfo(name="adult")
+    @ColumnInfo(name = "adult")
     val adult: Boolean = false,
-    @ColumnInfo(name="backdrop_path")
+    @ColumnInfo(name = "backdrop_path")
     val backdrop_path: String = "",
-    @ColumnInfo(name="original_title")
+    @ColumnInfo(name = "original_title")
     val original_title: String = "",
-    @ColumnInfo(name="original_language")
+    @ColumnInfo(name = "original_language")
     val original_language: String = "",
-    @ColumnInfo(name="overview")
+    @ColumnInfo(name = "overview")
     val overview: String = "",
-    @ColumnInfo(name="popularity")
+    @ColumnInfo(name = "popularity")
     val popularity: Double = -1.0,
-    @ColumnInfo(name="poster_path")
+    @ColumnInfo(name = "poster_path")
     val poster_path: String = "",
-    @ColumnInfo(name="release_date")
+    @ColumnInfo(name = "release_date")
     val release_date: String = "",
-    @ColumnInfo(name="title")
+    @ColumnInfo(name = "title")
     val title: String = "",
-    @ColumnInfo(name="video")
+    @ColumnInfo(name = "video")
     val video: Boolean = false,
-    @ColumnInfo(name="vote_average")
+    @ColumnInfo(name = "vote_average")
     val vote_average: Double = -1.0,
-    @ColumnInfo(name="vote_count")
+    @ColumnInfo(name = "vote_count")
     val vote_count: Int = -1,
     @ColumnInfo(name = "movie_type")
     val movie_type: String = ""
 )
 
-
-fun List<MovieEntity>.toMovieList(): MovieList{
+fun List<MovieEntity>.toMovieList(): MovieList {
     val resultList = mutableListOf<Movie>()
-    this.forEach{movieEntity ->
+    this.forEach { movieEntity ->
         resultList.add(movieEntity.toMovie())
     }
     return MovieList(resultList)
 }
 
-fun MovieEntity.toMovie(): Movie = Movie(
+fun MovieEntity.toMovie(): Movie =  Movie(
     this.id,
     this.adult,
     this.backdrop_path,
@@ -83,5 +81,21 @@ fun MovieEntity.toMovie(): Movie = Movie(
     this.vote_average,
     this.vote_count,
     this.movie_type
+)
 
+fun Movie.toMovieEntity(movieType: String): MovieEntity = MovieEntity(
+    this.id,
+    this.adult,
+    this.backdrop_path,
+    this.original_title,
+    this.original_language,
+    this.overview,
+    this.popularity,
+    this.poster_path,
+    this.release_date,
+    this.title,
+    this.video,
+    this.vote_average,
+    this.vote_count,
+    movie_type = movieType
 )

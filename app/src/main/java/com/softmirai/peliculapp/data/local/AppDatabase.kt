@@ -12,18 +12,17 @@ abstract class AppDatabase: RoomDatabase() {
 
     abstract fun movieDao(): MovieDao
 
-
-    //creo la instancia de room
-
     companion object {
+
         private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase{
+        fun getDatabase(context: Context): AppDatabase {
             INSTANCE = INSTANCE ?: Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
                 "movie_table"
             ).build()
+
             return INSTANCE!!
         }
 
@@ -31,9 +30,6 @@ abstract class AppDatabase: RoomDatabase() {
             INSTANCE = null
         }
 
-
-
     }
-
 
 }
